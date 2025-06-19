@@ -11,10 +11,18 @@ function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState('');
   const [editDueDate, setEditDueDate] = useState('');
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -62,8 +70,14 @@ function App() {
   const tasksLeft = tasks.filter(task => !task.completed).length;
 
   return (
-    <div className="App">
+    <div className={`App${darkMode ? ' dark' : ''}`}>
       <h1>To-Do List</h1>
+      <button
+        onClick={() => setDarkMode((prev) => !prev)}
+        style={{ marginBottom: 16, background: darkMode ? '#222' : '#eee', color: darkMode ? '#fff' : '#222' }}
+      >
+        {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      </button>
       <form onSubmit={handleAddTask} style={{ marginBottom: 24 }}>
         <input
           type="text"

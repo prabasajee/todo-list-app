@@ -119,3 +119,53 @@ li button {
   padding: 10px 20px;
   font-size: 1.1rem;
 }
+
+/* Dark mode styles */
+body.dark {
+  background: #181a1b;
+}
+
+.App.dark {
+  background: #23272f;
+  color: #f1f1f1;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.32);
+}
+
+.App.dark h1 {
+  color: #f1f1f1;
+}
+
+.App.dark input[type="text"],
+.App.dark input[type="date"] {
+  background: #23272f;
+  color: #f1f1f1;
+  border: 2px solid #444;
+}
+
+.App.dark input[type="text"]:focus,
+.App.dark input[type="date"]:focus {
+  border: 2.5px solid #61dafb;
+}
+
+.App.dark button {
+  background: #444;
+  color: #fff;
+}
+.App.dark button:hover {
+  background: #222;
+}
+
+.App.dark li {
+  background: #23272f;
+  color: #f1f1f1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.App.dark li.completed {
+  color: #888;
+  background: #222;
+}
+
+.App.dark ul {
+  background: none;
+}
